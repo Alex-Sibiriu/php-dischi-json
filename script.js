@@ -4,7 +4,8 @@ createApp({
   data() {
     return {
       apiUrl: 'server.php',
-      discs: []
+      discs: [],
+      activeDisc: {}
     }
   },
 
@@ -15,6 +16,10 @@ createApp({
         this.discs = result.data
         console.log(result.data);
       })
+    },
+
+    switchDisc(disc) {
+      this.activeDisc = disc
     }
   },
 

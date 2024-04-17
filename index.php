@@ -14,6 +14,9 @@
   <!-- Bootstrap  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 
+  <!-- CSS  -->
+  <link rel="stylesheet" href="style.css">
+
 </head>
 <body class="bg-black">
 
@@ -23,12 +26,32 @@
       <div class="row row-cols-3">
   
         <div class="col text-center mb-2 d-flex justify-content-center" v-for="disc in discs" :key="disc.id">
-          <div class="bg-secondary w-75 p-2 rounded-3 text-white">
-            <img class="w-50 mb-3" :src="disc.poster" alt="disc.title">
-            <h5>{{ disc.title }}</h5>
-            <h6>{{ disc.author }}</h6>
-            <p>{{ disc.year }}</p>
-            <p>{{ disc.genre }}</p>
+          <div @click="switchDisc(disc)" :class="{'active' : disc === activeDisc }" class="my-card position-relative px-2 py-4 rounded-top-3 text-white">
+
+            <div class="primary-card w-100 text-center">
+              <img class="mb-3" :src="disc.poster" alt="disc.title">
+              <h5 class="fw-bold">{{ disc.title }}</h5>
+              <h6 class="fw-bold">{{ disc.author }}</h6>
+              <p><strong>Anno: </strong>{{ disc.year }}</p>
+              <p><strong>Genere: </strong>{{ disc.genre }}</p>
+            </div>
+
+            <div class="disc-details position-absolute start-0 p-2 rounded-bottom-3">
+              <div class="songs-list ps-2">
+                <h6 class="fw-bold">Brani:</h6>
+                <ul class="list-unstyled">
+                  <li v-for="(song, index) in disc.songs" :key="disc.id + index">{{ song }}</li>
+                </ul>
+              </div>
+  
+              <div class="description">
+                <h6 class="fw-bold">Descrizione:</h6>
+                <p>{{ disc.description }}</p>
+              </div>
+            </div>
+
+
+
           </div>
         </div>
 
