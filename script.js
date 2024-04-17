@@ -19,7 +19,11 @@ createApp({
     },
 
     switchDisc(disc) {
-      this.activeDisc = disc
+      if (this.activeDisc === disc) {
+        this.activeDisc = {}
+      } else {
+        this.activeDisc = disc
+      }
     }
   },
 

@@ -1,64 +1,61 @@
+body {
+  background: #1D2D3C;
+  min-height: 100vh;
+}
+
+header {
+  background-color: #06131F;
+  height: 80px;
+}
+
+header i {
+  color: #18D860;
+  font-size: 2.5rem;
+}
+
 .my-card {
-  min-width: 75%;
-  background: rgb(0, 0, 58);
-  transition: background .3s;
-  border-end-end-radius: 15px;
-  border-bottom-left-radius: 15px;
+  perspective: 1000px;
+  height: 500px;
+  cursor: pointer;
+}
+
+.inner-card {
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.primary-card,
+.disc-details {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /*Safari*/
+  backface-visibility: hidden;
+}
+
+.primary-card {
+  background: #112030;
 }
 
 .primary-card img {
-  width: 150px;
-}
-
-.active.my-card {
-  z-index: 100;
-  background: rgb(0, 0, 81);
-  border-end-end-radius: 0;
-  border-bottom-left-radius: 0;
+  width: 250px;
 }
 
 .disc-details {
-  font-size: .8rem;
-  width: 100%;
-  height: 0px;
-  opacity: 0;
-  background: rgb(0, 0, 58);
-  top: 98%;
-}
-
-.active .disc-details {
-  animation: showDetails 1s ease-in-out both;
-  background: rgb(0, 0, 81);
-}
-
-.active .songs-list,
-.active .description {
-  animation: showText 1s ease-in-out both;
+  z-index: 100;
+  font-size: 1rem;
+  overflow: auto;
+  scrollbar-width: none;
+  min-height: 500px;
+  height: mit-content;
+  background: #09233f;
+  transform: rotateY(180deg);
 }
 
 .songs-list ul {
   columns: 2;
 }
 
-@keyframes showDetails {
-  from {
-    height: 0;
-    opacity: 1;
-  }
-  to {
-    height: 500px;
-    opacity: 1;
-  }
-}
-
-@keyframes showText {
-  from {
-    opacity: 0;
-  }
-  50% {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.flip180 {
+  transform: rotateY(180deg);
 }
