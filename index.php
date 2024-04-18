@@ -64,17 +64,18 @@
     <div class="container py-4">
       <div class="row row-cols-3">
   
-        <div class="col text-center mb-2 d-flex justify-content-center" v-for="disc in discs" :key="disc.id">
+        <div class="col text-center mb-2 d-flex justify-content-center" v-for="(disc, index) in discs" :key="disc.id">
           <div @click="switchDisc(disc)"  class="my-card w-100 px-2 py-4 text-white">
 
             <div :class="{'flip180' : disc === activeDisc }" class="inner-card w-100 h-100 position-relative">
               <div class="primary-card w-100 text-center rounded-3 d-flex align-items-center justify-content-center">
-                <div class="w-100">
+                <div class="w-100 position-relative">
                   <img v-if="disc.poster" class="mb-3 poster-img" :src="disc.poster" alt="disc.title">
                   <h5 class="fw-bold">{{ disc.title }}</h5>
                   <h6 v-if="disc.author" class="fw-bold">{{ disc.author }}</h6>
                   <p v-if="disc.year"><strong>Anno: </strong>{{ disc.year }}</p>
                   <p v-if="disc.genre"><strong>Genere: </strong>{{ disc.genre }}</p>
+                  <i @click.stop="removeDisc(index)" class="fa-solid fa-trash-can position-absolute"></i>
                 </div>
               </div>
 

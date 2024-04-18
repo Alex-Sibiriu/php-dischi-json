@@ -55,6 +55,18 @@ createApp({
         genre: '',
         description: '',
       }
+    },
+
+    removeDisc(index) {
+      if (confirm('Sei sicuro di voler eliminare il disco dalla lista?')) {
+        const data = new FormData();
+        data.append('indexToRemove', index)
+  
+        axios.post(this.apiUrl, data)
+        .then(response => {
+          this.discs = response.data
+        })
+      }
     }
   },
 

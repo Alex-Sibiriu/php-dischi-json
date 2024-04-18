@@ -41,6 +41,16 @@ header i {
   width: 65%;
 }
 
+.primary-card i {
+  bottom: 5px;
+  right: 20px;
+  transition: all .3s;
+}
+
+.primary-card i:hover {
+  color: red;
+}
+
 .disc-details {
   z-index: 100;
   font-size: 1rem;

@@ -17,9 +17,13 @@ if (isset($_POST['newTitle']) && strlen($_POST['newTitle']) > 0 ) {
     'description' => $_POST['newDescription'],
     'songs' => []
   ];
-
   array_unshift($list, $new_disc);
-  
+  file_put_contents('discs.json', json_encode($list));
+}
+
+if (isset($_POST['indexToRemove'])) {
+  $indexToRemove = $_POST['indexToRemove'];
+  array_splice($list, $indexToRemove, 1);
   file_put_contents('discs.json', json_encode($list));
 }
 
