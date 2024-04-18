@@ -41,9 +41,15 @@ header i {
   width: 65%;
 }
 
-.primary-card i {
+.primary-card .fa-trash-can {
   bottom: 5px;
   right: 20px;
+  transition: all .3s;
+}
+
+.primary-card .like-icons  {
+  bottom: 3px;
+  left: 20px;
   transition: all .3s;
 }
 

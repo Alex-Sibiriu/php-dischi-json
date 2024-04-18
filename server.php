@@ -27,6 +27,12 @@ if (isset($_POST['indexToRemove'])) {
   file_put_contents('discs.json', json_encode($list));
 }
 
+if (isset($_POST['likeIndex'])) {
+  $indexToToggle = $_POST['likeIndex'];
+  $list[$indexToToggle]['like'] = !$list[$indexToToggle]['like'];
+  file_put_contents('discs.json', json_encode($list));
+}
+
 //
 
 header('Content-Type: application/json');

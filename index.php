@@ -76,6 +76,10 @@
                   <p v-if="disc.year"><strong>Anno: </strong>{{ disc.year }}</p>
                   <p v-if="disc.genre"><strong>Genere: </strong>{{ disc.genre }}</p>
                   <i @click.stop="removeDisc(index)" class="fa-solid fa-trash-can position-absolute"></i>
+                  <div class="like-icons position-absolute">
+                    <i @click.stop="toggleLike(index)" v-if="!disc.like" class="fa-regular fa-heart"></i>
+                    <i @click.stop="toggleLike(index)" v-if="disc.like" class="fa-solid fa-heart text-danger"></i>
+                  </div>
                 </div>
               </div>
 

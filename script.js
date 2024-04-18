@@ -67,6 +67,16 @@ createApp({
           this.discs = response.data
         })
       }
+    },
+
+    toggleLike(index) {
+      const data = new FormData();
+      data.append('likeIndex', index)
+
+      axios.post(this.apiUrl, data)
+      .then(response => {
+        this.discs = response.data
+      })
     }
   },
 
