@@ -5,7 +5,6 @@ createApp({
     return {
       apiUrl: 'server.php',
       discs: [],
-      activeDisc: {},
       newDisc: {
         title: '',
         author: '',
@@ -13,6 +12,8 @@ createApp({
         poster: '',
         genre: '',
         description: '',
+        songs: '',
+        like: ''
       }
     }
   },
@@ -42,6 +43,7 @@ createApp({
       data.append('newPoster', this.newDisc.poster);
       data.append('newGenre', this.newDisc.genre);
       data.append('newDescription', this.newDisc.description);
+      data.append('newSongs', this.newDisc.songs);
 
       axios.post(this.apiUrl, data)
       .then(response => {
@@ -54,6 +56,8 @@ createApp({
         poster: '',
         genre: '',
         description: '',
+        songs: '',
+        like: ''
       }
     },
 
