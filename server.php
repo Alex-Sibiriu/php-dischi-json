@@ -2,11 +2,26 @@
 
 $string = file_get_contents('discs.json');
 
-$list = json_decode($string);
+$list = json_decode($string, true);
 
 // EVENTUALI MODIFICHE
 
+if (isset($_POST['newTitle']) && strlen($_POST['newTitle']) > 0 ) {
+  $new_disc = [
+    'id' => count($list),
+    'title' => $_POST['newTitle'],
+    'author' => $_POST['newAuthor'],
+    'year' => $_POST['newYear'],
+    'poster' => $_POST['newPoster'],
+    'genre' => $_POST['newGenre'],
+    'description' => $_POST['newDescription'],
+    'songs' => []
+  ];
 
+  array_unshift($list, $new_disc);
+  
+  file_put_contents('discs.json', json_encode($list));
+}
 
 //
 

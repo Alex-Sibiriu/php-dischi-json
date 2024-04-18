@@ -38,7 +38,7 @@ header i {
 }
 
 .primary-card img {
-  width: 250px;
+  width: 65%;
 }
 
 .disc-details {
@@ -46,8 +46,6 @@ header i {
   font-size: 1rem;
   overflow: auto;
   scrollbar-width: none;
-  min-height: 500px;
-  height: mit-content;
   background: #09233f;
   transform: rotateY(180deg);
 }
